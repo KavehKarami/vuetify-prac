@@ -17,4 +17,7 @@ export default {
   editUser(id, data) {
     return newAxios.patch(`/users/${id}`, data);
   },
+  createUser(data) {
+    return newAxios.post(`/users/`, data);
+  },
 };
