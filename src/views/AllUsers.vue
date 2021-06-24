@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-if="users.length">
+      <v-col>
         <v-text-field
           v-model="search"
           append-icon="mdi-magnify"
@@ -10,7 +10,13 @@
           hide-details
         ></v-text-field>
 
-        <v-data-table :headers="headers" :items="users" :search="search">
+        <v-data-table
+          :loading="!users.length"
+          loading-text="Loading... Please wait"
+          :headers="headers"
+          :items="users"
+          :search="search"
+        >
           <template v-slot:item.actions="{ item }">
             <v-icon small class="mr-2" @click="editItem(item)">
               mdi-pencil
@@ -18,10 +24,6 @@
             <v-icon small @click="deleteItem(item.id)"> mdi-delete </v-icon>
           </template>
         </v-data-table>
-      </v-col>
-
-      <v-col v-else>
-        <v-skeleton-loader type="table" />
       </v-col>
       <!-- ------------------------------ edit modal ------------------------------ -->
       <v-dialog v-model="openModal" persistent max-width="1200px">
@@ -126,5 +128,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

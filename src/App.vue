@@ -48,3 +48,15 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+.v-application .primary {
+  background-color: #552cff;
+  background-image: linear-gradient(
+    319deg,
+    #663dff 0%,
+    #aa00ff 37%,
+    #cc4499 100%
+  );
+}
+</style>

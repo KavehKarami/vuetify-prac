@@ -28,6 +28,7 @@
         :key="link.title"
         link
         exact
+        light
       >
         <v-list-item-icon>
           <v-icon>{{ link.icon }}</v-icon>
